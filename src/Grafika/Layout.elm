@@ -1,6 +1,7 @@
 module Grafika.Layout exposing (..)
 
 import Grafika.Contents as Contents exposing (Contents)
+import Grafika.Container as Container exposing (Container)
 
 
 type alias Layout msg =
@@ -23,7 +24,23 @@ hSeq l r =
   {
     width = l.width + r.width,
     height = max l.height r.height,
-    contents = Contents.hSeq l.width l.height r.width r.height l.contents r.contents
+    contents = 
+      [
+        Container.horizontal l.width l.height l.contents,
+        Container.horizontal r.width r.height r.contents
+      ]
+  }
+
+vSeq : Layout msg -> Layout msg -> Layout msg
+vSeq l r =
+  {
+    width = max l.width r.width,
+    height = l.height + r.height,
+    contents = 
+      [
+        Container.vertical l.width l.height l.contents,
+        Container.vertical r.width r.height r.contents
+      ]
   }
 
 string : Int -> Int -> String -> Layout msg
