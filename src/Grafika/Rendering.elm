@@ -1,17 +1,17 @@
-module Grafika.Layout exposing (..)
+module Grafika.Rendering exposing (..)
 
 import Grafika.Contents as Contents exposing (Contents)
 import Grafika.Container as Container exposing (Container)
 
 
-type alias Layout msg =
+type alias Rendering msg =
   {
     width : Int,
     height : Int,
     contents : Contents msg
   }
 
-map : (a -> b) -> Layout a -> Layout b
+map : (a -> b) -> Rendering a -> Rendering b
 map aToB rendering =
   {
     width = rendering.width,
@@ -19,7 +19,7 @@ map aToB rendering =
     contents = Contents.map aToB rendering.contents
   }
 
-hSeq : Layout msg -> Layout msg -> Layout msg
+hSeq : Rendering msg -> Rendering msg -> Rendering msg
 hSeq l r =
   {
     width = l.width + r.width,
@@ -31,7 +31,7 @@ hSeq l r =
       ]
   }
 
-vSeq : Layout msg -> Layout msg -> Layout msg
+vSeq : Rendering msg -> Rendering msg -> Rendering msg
 vSeq l r =
   {
     width = max l.width r.width,
@@ -43,7 +43,7 @@ vSeq l r =
       ]
   }
 
-string : Int -> Int -> String -> Layout msg
+string : Int -> Int -> String -> Rendering msg
 string width height x =
   {
     width = width,
