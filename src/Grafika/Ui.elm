@@ -55,3 +55,6 @@ pad top right bottom left ui attributes =
 
 withAttributes : List (Attribute msg) -> Ui msg -> Ui msg
 withAttributes attributes ui extraAttributes = ui (extraAttributes ++ attributes)
+
+text : String -> Ui msg
+text x _ = Html.text x
