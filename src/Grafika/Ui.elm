@@ -49,13 +49,7 @@ pad : Int -> Int -> Int -> Int -> Ui msg -> Ui msg
 pad top right bottom left ui attributes =
   ui
     (
-      Attribute.style "margin"
-        (
-          String.intPx top ++ " " ++
-          String.intPx right ++ " " ++
-          String.intPx bottom ++ " " ++
-          String.intPx left
-        ) ::
+      Attribute.style "margin" (String.intPx4d top right bottom left) ::
       attributes
     )
 
