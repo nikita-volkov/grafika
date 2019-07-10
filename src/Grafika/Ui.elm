@@ -58,3 +58,6 @@ pad top right bottom left ui attributes =
         ) ::
       attributes
     )
+
+withAttributes : List (Attribute msg) -> Ui msg -> Ui msg
+withAttributes attributes ui extraAttributes = ui (extraAttributes ++ attributes)
