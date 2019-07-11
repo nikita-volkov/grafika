@@ -115,3 +115,7 @@ htmlElement containerHtml attributeList childHtmlList =
 htmlContainer : (List (Attribute msg) -> List (Html msg) -> Html msg) -> List (Html msg) -> Ui msg
 htmlContainer containerHtml childHtmlList =
   html (\ extraAttributes -> containerHtml extraAttributes childHtmlList)
+
+uiContainer : (List (Attribute msg) -> List (Html msg) -> Html msg) -> List (Ui msg) -> Ui msg
+uiContainer containerHtml childUiList =
+  html (\ attributes -> containerHtml attributes (List.map (\ ui -> ui []) childUiList))
