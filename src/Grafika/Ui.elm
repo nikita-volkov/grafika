@@ -9,7 +9,7 @@ import Grafika.String as String
 {-|
 User Interface component.
 -}
-type alias Ui msg = List (Attribute msg) -> Html msg
+type alias Ui msg = List (Attribute Never) -> Html msg
 
 empty : Ui msg
 empty _ = Html.text ""
@@ -30,7 +30,7 @@ row spacing children attributes =
         ]
     in
       List.mapHeadAndTail wrapHead wrapTail children |>
-      Html.div attributes
+      Html.div (List.map (Attribute.map never) attributes)
 
 column : Int -> List (Ui msg) -> Ui msg
 column spacing children attributes =
@@ -43,7 +43,7 @@ column spacing children attributes =
         ]
     in
       List.mapHeadAndTail wrapHead wrapTail children |>
-      Html.div attributes
+      Html.div (List.map (Attribute.map never) attributes)
 
 pad : Int -> Int -> Int -> Int -> Ui msg -> Ui msg
 pad top right bottom left ui attributes =
@@ -53,11 +53,11 @@ pad top right bottom left ui attributes =
       attributes
     )
 
-withAttributes : List (Attribute msg) -> Ui msg -> Ui msg
+withAttributes : List (Attribute Never) -> Ui msg -> Ui msg
 withAttributes attributes ui extraAttributes = ui (extraAttributes ++ attributes)
 
 text : String -> Ui msg
 text x _ = Html.text x
 
-map : (a -> b) -> (b -> a) -> Ui a -> Ui b
-map aToB bToA uiA attributesB = attributesB |> List.map (Attribute.map bToA) |> uiA |> Html.map aToB
+map : (a -> b) -> Ui a -> Ui b
+map aToB uiA = uiA >> Html.map aToB
