@@ -52,6 +52,21 @@ pad top right bottom left =
       Attribute.style "margin" (String.intPx4d top right bottom left)
     ]
 
+centerHorizontally : Ui msg -> Ui msg
+centerHorizontally ui =
+  htmlElement Html.div
+    [
+      Attribute.style "text-align" "center"
+    ]
+    [
+      withAttributes
+        [
+          Attribute.style "display" "inline-block"
+        ]
+        ui
+        []
+    ]
+
 withAttributes : List (Attribute Never) -> Ui msg -> Ui msg
 withAttributes attributes ui extraAttributes = ui (extraAttributes ++ attributes)
 
