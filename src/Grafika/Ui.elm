@@ -57,7 +57,7 @@ withAttributes : List (Attribute Never) -> Ui msg -> Ui msg
 withAttributes attributes ui extraAttributes = ui (extraAttributes ++ attributes)
 
 text : String -> Ui msg
-text x _ = Html.text x
+text x = html (\ extraAttributes -> Html.div extraAttributes [Html.text x])
 
 map : (a -> b) -> Ui a -> Ui b
 map aToB uiA = uiA >> Html.map aToB
