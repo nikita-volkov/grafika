@@ -70,6 +70,32 @@ centerHorizontally ui =
         []
     ]
 
+centerVertically : Ui msg -> Ui msg
+centerVertically ui =
+  htmlElement Html.div
+    [
+      Attribute.style "height" "100%"
+    ]
+    [
+      htmlElement Html.div
+        [
+          Attribute.style "height" "100%",
+          Attribute.style "width" "100%",
+          Attribute.style "display" "table"
+        ]
+        [
+          withAttributes
+            [
+              Attribute.style "display" "table-cell",
+              Attribute.style "vertical-align" "middle",
+              Attribute.style "width" "100%"
+            ]
+            ui
+            []
+        ]
+        []
+    ]
+
 withAttributes : List (Attribute Never) -> Ui msg -> Ui msg
 withAttributes attributes ui extraAttributes = ui (extraAttributes ++ attributes)
 
