@@ -15,7 +15,7 @@ empty : Ui msg
 empty _ = Html.text ""
 
 row : Int -> List (Ui msg) -> Ui msg
-row spacing children extraAttributes =
+row spacing children =
   let
     wrapHead ui =
       ui
@@ -30,10 +30,10 @@ row spacing children extraAttributes =
         ]
     in
       List.mapHeadAndTail wrapHead wrapTail children |>
-      Html.div (List.map (Attribute.map never) extraAttributes)
+      htmlContainer Html.div
 
 column : Int -> List (Ui msg) -> Ui msg
-column spacing children extraAttributes =
+column spacing children =
   let
     wrapHead ui = ui []
     wrapTail ui =
@@ -43,7 +43,7 @@ column spacing children extraAttributes =
         ]
     in
       List.mapHeadAndTail wrapHead wrapTail children |>
-      Html.div (List.map (Attribute.map never) extraAttributes)
+      htmlContainer Html.div
 
 pad : Int -> Int -> Int -> Int -> Ui msg -> Ui msg
 pad top right bottom left ui extraAttributes =
@@ -68,3 +68,7 @@ html attributesToHtml neverAttributes = List.map (Attribute.map never) neverAttr
 htmlElement : (List (Attribute msg) -> List (Html msg) -> Html msg) -> List (Attribute msg) -> List (Html msg) -> Ui msg
 htmlElement containerHtml attributeList childHtmlList =
   html (\ extraAttributes -> containerHtml (extraAttributes ++ attributeList) childHtmlList)
+
+htmlContainer : (List (Attribute msg) -> List (Html msg) -> Html msg) -> List (Html msg) -> Ui msg
+htmlContainer containerHtml childHtmlList =
+  html (\ extraAttributes -> containerHtml extraAttributes childHtmlList)
