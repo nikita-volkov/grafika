@@ -30,7 +30,10 @@ row spacing children =
         ]
     in
       List.mapHeadAndTail wrapHead wrapTail children |>
-      htmlContainer Html.div
+      htmlElement Html.div
+        [
+          Attribute.style "text-align" "left"
+        ]
 
 column : Int -> List (Ui msg) -> Ui msg
 column spacing children =
