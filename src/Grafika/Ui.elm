@@ -64,3 +64,7 @@ map aToB uiA = uiA >> Html.map aToB
 
 html : (List (Attribute msg) -> Html msg) -> Ui msg
 html attributesToHtml neverAttributes = List.map (Attribute.map never) neverAttributes |> attributesToHtml
+
+container : (List (Attribute msg) -> List (Html msg) -> Html msg) -> List (Ui msg) -> Ui msg
+container containerHtml childUiList =
+  html (\ attributes -> containerHtml attributes (List.map (\ ui -> ui []) childUiList))
