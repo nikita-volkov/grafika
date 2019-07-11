@@ -58,3 +58,6 @@ withAttributes attributes ui extraAttributes = ui (extraAttributes ++ attributes
 
 text : String -> Ui msg
 text x _ = Html.text x
+
+map : (a -> b) -> (b -> a) -> Ui a -> Ui b
+map aToB bToA uiA attributesB = attributesB |> List.map (Attribute.map bToA) |> uiA |> Html.map aToB
