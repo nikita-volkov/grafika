@@ -26,7 +26,7 @@ row spacing children extraAttributes =
       ui
         [
           Attribute.style "display" "inline-block",
-          Attribute.style "margin-left" (String.fromInt spacing ++ "px")
+          Attribute.style "margin-left" (String.intPx spacing)
         ]
     in
       List.mapHeadAndTail wrapHead wrapTail children |>
@@ -39,7 +39,7 @@ column spacing children extraAttributes =
     wrapTail ui =
       ui
         [
-          Attribute.style "margin-top" (String.fromInt spacing ++ "px")
+          Attribute.style "margin-top" (String.intPx spacing)
         ]
     in
       List.mapHeadAndTail wrapHead wrapTail children |>
