@@ -99,6 +99,10 @@ centerVertically ui =
 withAttributes : List (Attribute Never) -> Ui msg -> Ui msg
 withAttributes attributes ui extraAttributes = ui (extraAttributes ++ attributes)
 
+withInteractiveAttributes : List (Attribute msg) -> Ui msg -> Ui msg
+withInteractiveAttributes attributes ui = 
+  html <| \ extraAttributes -> Html.div (extraAttributes ++ attributes) [ui []]
+
 text : String -> Ui msg
 text x = html (\ extraAttributes -> Html.div extraAttributes [Html.text x])
 
