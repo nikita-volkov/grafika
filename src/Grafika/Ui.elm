@@ -15,7 +15,7 @@ empty : Ui msg
 empty _ = Html.text ""
 
 row : Int -> List (Ui msg) -> Ui msg
-row spacing children attributes =
+row spacing children extraAttributes =
   let
     wrapHead ui =
       ui
@@ -30,10 +30,10 @@ row spacing children attributes =
         ]
     in
       List.mapHeadAndTail wrapHead wrapTail children |>
-      Html.div (List.map (Attribute.map never) attributes)
+      Html.div (List.map (Attribute.map never) extraAttributes)
 
 column : Int -> List (Ui msg) -> Ui msg
-column spacing children attributes =
+column spacing children extraAttributes =
   let
     wrapHead ui = ui []
     wrapTail ui =
@@ -43,14 +43,14 @@ column spacing children attributes =
         ]
     in
       List.mapHeadAndTail wrapHead wrapTail children |>
-      Html.div (List.map (Attribute.map never) attributes)
+      Html.div (List.map (Attribute.map never) extraAttributes)
 
 pad : Int -> Int -> Int -> Int -> Ui msg -> Ui msg
-pad top right bottom left ui attributes =
+pad top right bottom left ui extraAttributes =
   ui
     (
       Attribute.style "margin" (String.intPx4d top right bottom left) ::
-      attributes
+      extraAttributes
     )
 
 withAttributes : List (Attribute Never) -> Ui msg -> Ui msg
