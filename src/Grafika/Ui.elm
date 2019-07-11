@@ -46,12 +46,11 @@ column spacing children =
       htmlContainer Html.div
 
 pad : Int -> Int -> Int -> Int -> Ui msg -> Ui msg
-pad top right bottom left ui extraAttributes =
-  ui
-    (
-      Attribute.style "margin" (String.intPx4d top right bottom left) ::
-      extraAttributes
-    )
+pad top right bottom left =
+  withAttributes
+    [
+      Attribute.style "margin" (String.intPx4d top right bottom left)
+    ]
 
 withAttributes : List (Attribute Never) -> Ui msg -> Ui msg
 withAttributes attributes ui extraAttributes = ui (extraAttributes ++ attributes)
