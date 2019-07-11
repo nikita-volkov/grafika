@@ -61,3 +61,6 @@ text x _ = Html.text x
 
 map : (a -> b) -> Ui a -> Ui b
 map aToB uiA = uiA >> Html.map aToB
+
+html : (List (Attribute msg) -> Html msg) -> Ui msg
+html attributesToHtml neverAttributes = List.map (Attribute.map never) neverAttributes |> attributesToHtml
