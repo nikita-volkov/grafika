@@ -74,6 +74,7 @@ centerVertically : Ui msg -> Ui msg
 centerVertically ui =
   htmlElement Html.div
     [
+      Attribute.style "width" "100%",
       Attribute.style "height" "100%"
     ]
     [
