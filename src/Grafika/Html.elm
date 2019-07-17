@@ -1,4 +1,7 @@
 module Grafika.Html exposing (..)
+{-|
+Wraps the typical patterns in HTML.
+-}
 
 import Html exposing (..)
 import Html.Attributes as Attribute
@@ -89,3 +92,6 @@ centerVertically html =
             [html]
         ]
     ]
+
+attributed : Html msg -> List (Attribute msg) -> Html msg
+attributed child attributes = div attributes [child]
