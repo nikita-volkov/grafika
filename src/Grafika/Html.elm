@@ -95,3 +95,14 @@ centerVertically html =
 
 attributed : Html msg -> List (Attribute msg) -> Html msg
 attributed child attributes = div attributes [child]
+
+stylesheet : String -> Html msg
+stylesheet css =
+  node "style"
+    [
+      Attribute.rel "stylesheet",
+      Attribute.type_ "text/css"
+    ]
+    [
+      text css
+    ]
