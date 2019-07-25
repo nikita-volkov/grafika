@@ -7,6 +7,7 @@ import Html exposing (..)
 import Html.Attributes as Attribute
 import Grafika.CoreExtensions.List as List
 import Grafika.String as String
+import Markdown
 
 
 empty : Html msg
@@ -106,3 +107,6 @@ stylesheet css =
     [
       text css
     ]
+
+markdown : List (Attribute msg) -> String -> Html msg
+markdown = Markdown.toHtml

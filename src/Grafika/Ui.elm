@@ -4,6 +4,7 @@ import Html exposing (Html, Attribute)
 import Html.Attributes as Attribute
 import Grafika.CoreExtensions.List as List
 import Grafika.String as String
+import Markdown
 
 
 {-|
@@ -124,3 +125,7 @@ htmlContainer containerHtml childHtmlList =
 uiContainer : (List (Attribute msg) -> List (Html msg) -> Html msg) -> List (Ui msg) -> Ui msg
 uiContainer containerHtml childUiList =
   html (\ attributes -> containerHtml attributes (List.map (\ ui -> ui []) childUiList))
+
+markdown : String -> Ui msg
+markdown string =
+  html (\ extraAttributes -> Markdown.toHtml extraAttributes string)
