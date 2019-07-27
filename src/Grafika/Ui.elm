@@ -99,11 +99,11 @@ centerVertically ui =
     ]
 
 withAttributes : List (Attribute Never) -> Ui msg -> Ui msg
-withAttributes attributes ui extraAttributes = ui (extraAttributes ++ attributes)
+withAttributes attributes ui extraAttributes = ui (attributes ++ extraAttributes)
 
 withInteractiveAttributes : List (Attribute msg) -> Ui msg -> Ui msg
 withInteractiveAttributes attributes ui = 
-  html <| \ extraAttributes -> Html.div (extraAttributes ++ attributes) [ui []]
+  html <| \ extraAttributes -> Html.div (attributes ++ extraAttributes) [ui []]
 
 text : String -> Ui msg
 text x = html (\ extraAttributes -> Html.div extraAttributes [Html.text x])
@@ -116,7 +116,7 @@ html attributesToHtml neverAttributes = List.map (Attribute.map never) neverAttr
 
 htmlElement : (List (Attribute msg) -> List (Html msg) -> Html msg) -> List (Attribute msg) -> List (Html msg) -> Ui msg
 htmlElement containerHtml attributeList childHtmlList =
-  html (\ extraAttributes -> containerHtml (extraAttributes ++ attributeList) childHtmlList)
+  html (\ extraAttributes -> containerHtml (attributeList ++ extraAttributes) childHtmlList)
 
 htmlContainer : (List (Attribute msg) -> List (Html msg) -> Html msg) -> List (Html msg) -> Ui msg
 htmlContainer containerHtml childHtmlList =
