@@ -19,6 +19,7 @@ row spacing children =
     wrapHead html =
       div
         [
+          Attribute.style "height" "100%",
           Attribute.style "display" "inline-block"
         ]
         [
@@ -27,6 +28,7 @@ row spacing children =
     wrapTail html =
       div
         [
+          Attribute.style "height" "100%",
           Attribute.style "display" "inline-block",
           Attribute.style "margin-left" (String.intPx spacing)
         ]
