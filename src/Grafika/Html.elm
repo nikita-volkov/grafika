@@ -98,3 +98,37 @@ stylesheet css =
 
 markdown : List (Attribute msg) -> String -> Html msg
 markdown = Markdown.toHtml
+
+{-|
+Sequence horizontally giving space preference to the element on the left.
+-}
+sequenceHorizontallyToLeft : Int -> List (Html a) -> Html a
+sequenceHorizontallyToLeft spacing =
+  let
+    wrapHead html =
+      div
+        [
+          style "flex-grow" "1",
+          style "height" "100%"
+        ]
+        [
+          html
+        ]
+    wrapTail html =
+      div
+        [
+          style "height" "100%",
+          style "margin-left" (String.intPx spacing)
+        ]
+        [
+          html
+        ]
+    in
+      List.mapHeadAndTail wrapHead wrapTail >>
+      div
+        [
+          style "display" "flex",
+          style "justify-content" "space-between",
+          style "width" "100%",
+          style "height" "100%"
+        ]
