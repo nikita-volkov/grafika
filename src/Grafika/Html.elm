@@ -71,29 +71,15 @@ centerHorizontally html =
         [html]
     ]
 
-centerVertically : Html msg -> Html msg
-centerVertically html =
+centerVertically : Html a -> Html a
+centerVertically =
+  List.singleton >>
   div
     [
+      style "height" "100%",
       style "width" "100%",
-      style "height" "100%"
-    ]
-    [
-      div
-        [
-          style "height" "100%",
-          style "width" "100%",
-          style "display" "table"
-        ]
-        [
-          div
-            [
-              style "display" "table-cell",
-              style "vertical-align" "middle",
-              style "width" "100%"
-            ]
-            [html]
-        ]
+      style "display" "flex",
+      style "align-items" "center"
     ]
 
 attributed : Html msg -> List (Attribute msg) -> Html msg
