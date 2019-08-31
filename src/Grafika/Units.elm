@@ -22,3 +22,24 @@ type Display =
   FlexDisplay |
   InlineBlockDisplay |
   BlockDisplay
+
+{-|
+For reference see:
+https://www.w3schools.com/cssref/pr_font_font.asp
+
+TODO: Add line-height, font-variant.
+- https://www.w3schools.com/cssref/pr_dim_line-height.asp
+- https://www.w3schools.com/cssref/pr_font_font-variant.asp
+-}
+type alias Font =
+  {
+    family : String,
+    size : Length,
+    weight : Int,
+    style : FontStyle
+  }
+
+type FontStyle =
+  NormalFontStyle |
+  ItalicFontStyle |
+  ObliqueFontStyle
