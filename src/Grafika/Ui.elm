@@ -3,7 +3,7 @@ module Grafika.Ui exposing (..)
 import Html exposing (Html, Attribute)
 import Html.Attributes as Attribute
 import Grafika.CoreExtensions.List as List
-import Grafika.String as String
+import Grafika.CssValue as CssValue
 import Markdown
 
 
@@ -27,7 +27,7 @@ row spacing children =
       ui
         [
           Attribute.style "display" "inline-block",
-          Attribute.style "margin-left" (String.intPx spacing)
+          Attribute.style "margin-left" (CssValue.intPx spacing)
         ]
     in
       List.mapHeadAndTail wrapHead wrapTail children |>
@@ -43,7 +43,7 @@ column spacing children =
     wrapTail ui =
       ui
         [
-          Attribute.style "margin-top" (String.intPx spacing)
+          Attribute.style "margin-top" (CssValue.intPx spacing)
         ]
     in
       List.mapHeadAndTail wrapHead wrapTail children |>
@@ -53,7 +53,7 @@ pad : Int -> Int -> Int -> Int -> Ui msg -> Ui msg
 pad top right bottom left =
   withAttributes
     [
-      Attribute.style "margin" (String.intPx4d top right bottom left)
+      Attribute.style "margin" (CssValue.intPx4d top right bottom left)
     ]
 
 centerHorizontally : Ui msg -> Ui msg

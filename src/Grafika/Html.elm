@@ -6,7 +6,7 @@ Wraps the typical patterns in HTML.
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Grafika.CoreExtensions.List as List
-import Grafika.String as String
+import Grafika.CssValue as CssValue
 import Markdown
 
 
@@ -30,7 +30,7 @@ row spacing children =
         [
           style "height" "100%",
           style "display" "inline-block",
-          style "margin-left" (String.intPx spacing)
+          style "margin-left" (CssValue.intPx spacing)
         ]
         [
           html
@@ -48,7 +48,7 @@ column spacing children =
     wrapTail html =
       div
         [
-          style "margin-top" (String.intPx spacing)
+          style "margin-top" (CssValue.intPx spacing)
         ]
         [
           html
@@ -118,7 +118,7 @@ sequenceHorizontallyToLeft spacing =
       div
         [
           style "height" "100%",
-          style "margin-left" (String.intPx spacing)
+          style "margin-left" (CssValue.intPx spacing)
         ]
         [
           html

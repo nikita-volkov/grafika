@@ -1,17 +1,29 @@
 module Grafika.Attribute exposing (..)
 
-import Html exposing (..)
 import Html.Attributes exposing (..)
+import Grafika.Units exposing (..)
+import Html exposing (Attribute)
+import Color exposing (Color)
+import Grafika.CssValue as CssValue
 
 
-width : Int -> Attribute msg
-width x = style "width" (String.fromInt x ++ "px")
+width : Length -> Attribute msg
+width = style "width" << CssValue.length
 
-height : Int -> Attribute msg
-height x = style "height" (String.fromInt x ++ "px")
+height : Length -> Attribute msg
+height = style "height" << CssValue.length
+
+fontSize : Length -> Attribute msg
+fontSize = style "font-size" << CssValue.length
+
+background : Color -> Attribute msg
+background = style "background" << CssValue.color
+
+color : Color -> Attribute msg
+color = style "color" << CssValue.color
 
 horizontalBlock : Attribute msg
-horizontalBlock = style "display" "inline-block"
+horizontalBlock = style "display" CssValue.inlineBlock
 
 verticalBlock : Attribute msg
-verticalBlock = style "display" "block"
+verticalBlock = style "display" CssValue.block
