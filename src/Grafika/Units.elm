@@ -23,13 +23,23 @@ type Display =
   InlineBlockDisplay |
   BlockDisplay
 
+{-|
+For reference see:
+https://www.w3schools.com/cssref/pr_font_font.asp
+
+TODO: Add line-height, font-variant.
+- https://www.w3schools.com/cssref/pr_dim_line-height.asp
+- https://www.w3schools.com/cssref/pr_font_font-variant.asp
+-}
 type alias Font =
   {
     family : String,
     size : Length,
-    weight : FontWeight,
-    italic : Bool
+    weight : Int,
+    style : FontStyle
   }
 
-type FontWeight =
-  NormalFontWeight
+type FontStyle =
+  NormalFontStyle |
+  ItalicFontStyle |
+  ObliqueFontStyle
