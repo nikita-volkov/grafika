@@ -1,4 +1,4 @@
-module Grafika.Attribute exposing (..)
+module Grafika.StyleAttribute exposing (..)
 
 import Html.Attributes exposing (..)
 import Grafika.Units exposing (..)
