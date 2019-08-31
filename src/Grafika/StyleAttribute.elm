@@ -13,6 +13,9 @@ width = style "width" << CssValue.length
 height : Length -> Attribute msg
 height = style "height" << CssValue.length
 
+fontFamily : String -> Attribute msg
+fontFamily = style "font-family"
+
 fontSize : Length -> Attribute msg
 fontSize = style "font-size" << CssValue.length
 
