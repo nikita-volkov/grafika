@@ -32,11 +32,14 @@ length unit = case unit of
   PxLength x -> intPx x
   PctLength x -> floatFrac x
 
+fourDim : FourDim -> String
+fourDim = Debug.todo ""
+
 color : Color -> String
 color = Color.toCssString
 
-inlineBlock : String
-inlineBlock = "inline-block"
-
-block : String
-block = "block"
+display : Display -> String
+display x = case x of
+  FlexDisplay -> "flex"
+  InlineBlockDisplay -> "inline-block"
+  BlockDisplay -> "block"
