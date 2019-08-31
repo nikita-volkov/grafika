@@ -22,3 +22,14 @@ type Display =
   FlexDisplay |
   InlineBlockDisplay |
   BlockDisplay
+
+type alias Font =
+  {
+    family : String,
+    size : Length,
+    weight : FontWeight,
+    italic : Bool
+  }
+
+type FontWeight =
+  NormalFontWeight
