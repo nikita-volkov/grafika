@@ -1,6 +1,6 @@
 module Grafika.CssValue exposing (..)
 
-import Grafika.Units exposing (..)
+import Grafika.Types exposing (..)
 import Round
 import Color exposing (Color)
 

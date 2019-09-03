@@ -1,4 +1,4 @@
-module Grafika.Units exposing (..)
+module Grafika.Types exposing (..)
 
 
 {-|

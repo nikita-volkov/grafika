@@ -1,7 +1,7 @@
 module Grafika.StyleAttribute exposing (..)
 
 import Html.Attributes exposing (..)
-import Grafika.Units exposing (..)
+import Grafika.Types exposing (..)
 import Html exposing (Attribute)
 import Color exposing (Color)
 import Grafika.CssValue as CssValue
