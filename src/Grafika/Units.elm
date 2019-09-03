@@ -33,11 +33,16 @@ TODO: Add line-height, font-variant.
 -}
 type alias Font =
   {
+    face : FontFace,
+    size : Length
+  }
+
+type alias FontFace =
+  {
     name : String,
-    size : Length,
+    family : FontFamily,
     weight : Int,
     italic : Bool,
-    family : FontFamily,
     location : FontLocation
   }
 

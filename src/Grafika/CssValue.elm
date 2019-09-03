@@ -69,9 +69,9 @@ font : Font -> String
 font x =
   String.join " "
     [
-      fontStyle x.italic,
+      fontStyle x.face.italic,
       "normal",
-      String.fromInt x.weight,
+      String.fromInt x.face.weight,
       length x.size ++ "/normal",
-      x.name ++ ", " ++ fontFamily x.family
+      x.face.name ++ ", " ++ fontFamily x.face.family
     ]
