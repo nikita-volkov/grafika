@@ -41,7 +41,7 @@ type alias FontFace =
   {
     name : String,
     family : FontFamily,
-    weight : Int,
+    weight : FontWeight,
     italic : Bool,
     location : FontLocation
   }
@@ -53,3 +53,15 @@ type FontFamily =
   SansSerifFontFamily |
   SerifFontFamily |
   MonospaceFontFamily
+
+type FontWeight =
+  ThinFontWeight |
+  UltraLightFontWeight |
+  LightFontWeight |
+  NormalFontWeight |
+  MediumFontWeight |
+  SemiBoldFontWeight |
+  BoldFontWeight |
+  UltraBoldFontWeight |
+  BlackFontWeight |
+  UltraBlackFontWeight

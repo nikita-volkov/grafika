@@ -55,6 +55,19 @@ fontFamily x = case x of
   SerifFontFamily -> "serif"
   MonospaceFontFamily -> "monospace"
 
+fontWeight : FontWeight -> String
+fontWeight x = case x of
+  ThinFontWeight -> "100"
+  UltraLightFontWeight -> "200"
+  LightFontWeight -> "300"
+  NormalFontWeight -> "400"
+  MediumFontWeight -> "500"
+  SemiBoldFontWeight -> "600"
+  BoldFontWeight -> "700"
+  UltraBoldFontWeight -> "800"
+  BlackFontWeight -> "900"
+  UltraBlackFontWeight -> "950"
+
 {-|
 Combined font property.
 
@@ -71,7 +84,7 @@ font x =
     [
       fontStyle x.face.italic,
       "normal",
-      String.fromInt x.face.weight,
+      fontWeight x.face.weight,
       length x.size ++ "/normal",
       x.face.name ++ ", " ++ fontFamily x.face.family
     ]

@@ -30,8 +30,8 @@ fontFamily = style "font-family"
 fontSize : Length -> Attribute msg
 fontSize = style "font-size" << CssValue.length
 
-fontWeight : Int -> Attribute msg
-fontWeight = style "font-weight" << String.fromInt
+fontWeight : FontWeight -> Attribute msg
+fontWeight = style "font-weight" << CssValue.fontWeight
 
 fontStyle : Bool -> Attribute msg
 fontStyle = style "font-style" << CssValue.fontStyle
