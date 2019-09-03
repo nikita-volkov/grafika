@@ -1,5 +1,12 @@
 module Grafika.Types exposing (..)
 
+import Color
+
+
+{-|
+Reexport of `Color.Color`.
+-}
+type alias Color = Color.Color
 
 {-|
 For reference see
