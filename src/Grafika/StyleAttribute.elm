@@ -33,7 +33,7 @@ fontSize = style "font-size" << CssValue.length
 fontWeight : Int -> Attribute msg
 fontWeight = style "font-weight" << String.fromInt
 
-fontStyle : FontStyle -> Attribute msg
+fontStyle : Bool -> Attribute msg
 fontStyle = style "font-style" << CssValue.fontStyle
 
 backgroundColor : Color -> Attribute msg
