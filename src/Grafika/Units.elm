@@ -33,13 +33,35 @@ TODO: Add line-height, font-variant.
 -}
 type alias Font =
   {
-    family : String,
-    size : Length,
-    weight : Int,
-    style : FontStyle
+    face : FontFace,
+    size : Length
   }
 
-type FontStyle =
-  NormalFontStyle |
-  ItalicFontStyle |
-  ObliqueFontStyle
+type alias FontFace =
+  {
+    name : String,
+    family : FontFamily,
+    weight : FontWeight,
+    italic : Bool,
+    location : FontLocation
+  }
+
+type FontLocation =
+  GoogleFontLocation | UriFontLocation String | LocalFontLocation
+
+type FontFamily =
+  SansSerifFontFamily |
+  SerifFontFamily |
+  MonospaceFontFamily
+
+type FontWeight =
+  ThinFontWeight |
+  UltraLightFontWeight |
+  LightFontWeight |
+  NormalFontWeight |
+  MediumFontWeight |
+  SemiBoldFontWeight |
+  BoldFontWeight |
+  UltraBoldFontWeight |
+  BlackFontWeight |
+  UltraBlackFontWeight

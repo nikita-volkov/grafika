@@ -44,11 +44,29 @@ display x = case x of
   InlineBlockDisplay -> "inline-block"
   BlockDisplay -> "block"
 
-fontStyle : FontStyle -> String
+fontStyle : Bool -> String
 fontStyle x = case x of
-  NormalFontStyle -> "normal"
-  ItalicFontStyle -> "italic"
-  ObliqueFontStyle -> "oblique"
+  False -> "normal"
+  True -> "italic"
+
+fontFamily : FontFamily -> String
+fontFamily x = case x of
+  SansSerifFontFamily -> "sans-serif"
+  SerifFontFamily -> "serif"
+  MonospaceFontFamily -> "monospace"
+
+fontWeight : FontWeight -> String
+fontWeight x = case x of
+  ThinFontWeight -> "100"
+  UltraLightFontWeight -> "200"
+  LightFontWeight -> "300"
+  NormalFontWeight -> "400"
+  MediumFontWeight -> "500"
+  SemiBoldFontWeight -> "600"
+  BoldFontWeight -> "700"
+  UltraBoldFontWeight -> "800"
+  BlackFontWeight -> "900"
+  UltraBlackFontWeight -> "950"
 
 {-|
 Combined font property.
@@ -64,9 +82,9 @@ font : Font -> String
 font x =
   String.join " "
     [
-      fontStyle x.style,
+      fontStyle x.face.italic,
       "normal",
-      String.fromInt x.weight,
+      fontWeight x.face.weight,
       length x.size ++ "/normal",
-      x.family
+      x.face.name ++ ", " ++ fontFamily x.face.family
     ]
