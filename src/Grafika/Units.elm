@@ -47,7 +47,7 @@ type alias FontFace =
   }
 
 type FontLocation =
-  GoogleFontLocation | UriFontLocation String
+  GoogleFontLocation | UriFontLocation String | LocalFontLocation
 
 type FontFamily =
   SansSerifFontFamily |
