@@ -10,6 +10,11 @@ import Grafika.CssValue as CssValue
 import Markdown
 
 
+foldMapMaybe : (a -> Html msg) -> Maybe a -> Html msg
+foldMapMaybe proj maybeA = case maybeA of
+  Just a -> proj a
+  Nothing -> text ""
+
 foldMaybe : Maybe (Html msg) -> Html msg
 foldMaybe = Maybe.withDefault (text "")
 
