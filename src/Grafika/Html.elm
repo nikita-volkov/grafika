@@ -10,6 +10,9 @@ import Grafika.CssValue as CssValue
 import Markdown
 
 
+foldMaybe : Maybe (Html msg) -> Html msg
+foldMaybe = Maybe.withDefault (text "")
+
 empty : Html msg
 empty = text ""
 
