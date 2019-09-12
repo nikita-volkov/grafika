@@ -1,25 +1,29 @@
 {
-    "type": "package",
-    "name": "nikita-volkov/grafika",
-    "summary": "UI utils",
-    "license": "MIT",
-    "version": "1.0.0",
-    "exposed-modules": [
-        "Grafika.Html",
-        "Grafika.String",
-        "Grafika.Ui"
+    "type": "application",
+    "source-directories": [
+        "src",
+        "dependencies/fonts/src"
     ],
-    "elm-version": "0.19.0 <= v < 0.20.0",
+    "elm-version": "0.19.0",
     "dependencies": {
-        "avh4/elm-color": "1.0.0 <= v < 2.0.0",
-        "elm/core": "1.0.0 <= v < 2.0.0",
-        "elm/html": "1.0.0 <= v < 2.0.0",
-        "elm-explorations/markdown": "1.0.0 <= v < 2.0.0",
-        "myrho/elm-round": "1.0.4 <= v < 2.0.0",
-        "nikita-volkov/typeclasses": "1.7.0 <= v < 2.0.0",
-        "toastal/either": "3.5.1 <= v < 4.0.0"
+        "direct": {
+            "avh4/elm-color": "1.0.0",
+            "elm/core": "1.0.2",
+            "elm/html": "1.0.0",
+            "elm/json": "1.1.3",
+            "elm/url": "1.0.0",
+            "elm-explorations/markdown": "1.0.0",
+            "myrho/elm-round": "1.0.4",
+            "nikita-volkov/typeclasses": "1.7.0",
+            "toastal/either": "3.5.1"
+        },
+        "indirect": {
+            "elm/bytes": "1.0.8",
+            "elm/virtual-dom": "1.0.2"
+        }
     },
     "test-dependencies": {
-        "elm-explorations/test": "1.2.1 <= v < 2.0.0"
+        "direct": {},
+        "indirect": {}
     }
 }

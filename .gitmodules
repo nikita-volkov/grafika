@@ -1,0 +1,3 @@
+[submodule "dependencies/fonts"]
+	path = dependencies/fonts
+	url = https://github.com/nikita-volkov/fonts.git

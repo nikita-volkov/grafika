@@ -5,9 +5,12 @@ Wraps the typical patterns in HTML.
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
+import Grafika.Types exposing (..)
 import Grafika.CoreExtensions.List as List
 import Grafika.CssValue as CssValue
+import Grafika.Font as Font
 import Markdown
+import Fonts.Extensions.Html as Fonts
 
 
 foldMapMaybe : (a -> Html msg) -> Maybe a -> Html msg
@@ -140,3 +143,6 @@ sequenceHorizontallyToLeft spacing =
           style "width" "100%",
           style "height" "100%"
         ]
+
+fontStylesheet : List FontFace -> Html a
+fontStylesheet = List.filterMap Font.fontFace >> Fonts.style
