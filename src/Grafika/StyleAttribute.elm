@@ -42,6 +42,9 @@ backgroundColor = style "background-color" << CssValue.color
 color : Color -> Attribute msg
 color = style "color" << CssValue.color
 
+borderColor : Color -> Attribute msg
+borderColor = style "border-color" << CssValue.color
+
 display : Display -> Attribute msg
 display = style "display" << CssValue.display
 
