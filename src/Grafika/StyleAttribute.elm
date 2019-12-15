@@ -53,3 +53,9 @@ padding = style "padding" << CssValue.fourDim
 
 margin : FourDim -> Attribute msg
 margin = style "margin" << CssValue.fourDim
+
+textShadow : List Shadow -> Attribute msg
+textShadow = style "text-shadow" << CssValue.multiShadow
+
+boxShadow : List Shadow -> Attribute msg
+boxShadow = style "box-shadow" << CssValue.multiShadow

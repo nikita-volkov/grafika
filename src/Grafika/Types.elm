@@ -72,3 +72,5 @@ type FontWeight =
   UltraBoldFontWeight |
   BlackFontWeight |
   UltraBlackFontWeight
+
+type alias Shadow = { x : Float, y : Float, blur : Float, color : Color }

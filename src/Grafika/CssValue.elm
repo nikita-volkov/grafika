@@ -88,3 +88,14 @@ font x =
       length x.size ++ "/normal",
       x.face.name ++ ", " ++ fontFamily x.face.family
     ]
+
+singleShadow : Shadow -> String
+singleShadow a = String.join " " [
+    floatPx a.x,
+    floatPx a.y,
+    floatPx a.blur,
+    color a.color
+  ]
+
+multiShadow : List Shadow -> String
+multiShadow = String.join ", " << List.map singleShadow
