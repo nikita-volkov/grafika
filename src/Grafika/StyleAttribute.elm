@@ -22,7 +22,7 @@ Syntax:
 https://www.w3schools.com/cssref/pr_font_font.asp
 -}
 font : Font -> Attribute msg
-font = style "font"  << CssValue.font
+font = style "font" << CssValue.font
 
 fontFamily : String -> Attribute msg
 fontFamily = style "font-family"
