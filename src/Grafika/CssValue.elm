@@ -32,6 +32,13 @@ length unit = case unit of
   PxLength x -> intPx x
   PctLength x -> floatFrac x
 
+fourDim : FourDim -> String
+fourDim a = case a of
+  FourDim1 b -> length b
+  FourDim2 b c -> length b ++ " " ++ length c ++ " "
+  FourDim3 b c d -> length b ++ " " ++ length c ++ " " ++ length d
+  FourDim4 b c d e -> length b ++ " " ++ length c ++ " " ++ length d ++ " " ++ length e
+
 color : Color -> String
 color = Color.toCssString
 
