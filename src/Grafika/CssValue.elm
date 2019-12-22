@@ -32,9 +32,6 @@ length unit = case unit of
   PxLength x -> intPx x
   PctLength x -> floatFrac x
 
-fourDim : FourDim -> String
-fourDim = Debug.todo ""
-
 color : Color -> String
 color = Color.toCssString
 
